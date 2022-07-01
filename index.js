@@ -91,13 +91,13 @@ function openSquare(i, j) {
                     //center
                     openSquare(i-1, j);
                     //right
-                    if (j + 1 < row)
+                    if (j + 1 < col)
                         openSquare(i-1, j+1);
                 }
                 //middle
                 if (j - 1 >= 0)
                     openSquare(i, j-1);
-                if (j + 1 < row)
+                if (j + 1 < col)
                     openSquare(i, j+1);
                 //bottom
                 if (i + 1 < row) {
@@ -107,7 +107,7 @@ function openSquare(i, j) {
                     //center
                         openSquare(i+1, j);
                     //right
-                    if (j + 1 < row)
+                    if (j + 1 < col)
                         openSquare(i+1, j+1);
                 }
             } else {
@@ -168,7 +168,6 @@ function genGame(row, col, boom, size) {
         } while (arr[i][j].isBoom == true);
         arr[i][j].isBoom = true;
     }
-    console.log(arr);
 
     //count boom
     for (let i = 0; i < row; i++) {
@@ -183,7 +182,7 @@ function genGame(row, col, boom, size) {
                 if (arr[i - 1][j].isBoom == true)
                     arr[i][j].numBoom++;
                 //right
-                if (j + 1 < row)
+                if (j + 1 < col)
                     if (arr[i - 1][j + 1].isBoom == true)
                         arr[i][j].numBoom++;
             }
@@ -191,7 +190,7 @@ function genGame(row, col, boom, size) {
             if (j - 1 >= 0)
                 if (arr[i][j - 1].isBoom == true)
                     arr[i][j].numBoom++;
-            if (j + 1 < row)
+            if (j + 1 < col)
                 if (arr[i][j + 1].isBoom == true)
                     arr[i][j].numBoom++;
             //bottom
@@ -204,7 +203,7 @@ function genGame(row, col, boom, size) {
                 if (arr[i + 1][j].isBoom == true)
                     arr[i][j].numBoom++;
                 //right
-                if (j + 1 < row)
+                if (j + 1 < col)
                     if (arr[i + 1][j + 1].isBoom == true)
                         arr[i][j].numBoom++;
             }
