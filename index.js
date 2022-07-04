@@ -130,6 +130,7 @@ function changeFlag(i, j) {
             flag--;
         }
         document.getElementById('flag').innerText = flag;
+        checkWin();
     }
 }
 
